@@ -17,6 +17,9 @@ defmodule Minty.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    # mix phoenix.gen.html Transaction transactions account_name:string category:string date:date description:string
+    resources "/transactions", TransactionController
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,28 @@
+<h2>Show transaction</h2>
+
+<ul>
+
+  <li>
+    <strong>Account name:</strong>
+    <%= @transaction.account_name %>
+  </li>
+
+  <li>
+    <strong>Category:</strong>
+    <%= @transaction.category %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @transaction.date %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @transaction.description %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: transaction_path(@conn, :edit, @transaction) %>
+<%= link "Back", to: transaction_path(@conn, :index) %>
