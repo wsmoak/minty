@@ -10,7 +10,14 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
+defmodule Minty.Seeds do
+
+  def store_it(row) do
+    IO.inspect row
+  end
+
+end
+
 File.stream!("/Users/wsmoak/Downloads/transactions.csv")
-    |> CSV.decode(headers: true)
-    |> Enum.take(2)
-    |> IO.inspect
+  |> CSV.decode(headers: true)
+  |> Enum.each(&Minty.Seeds.store_it/1)
