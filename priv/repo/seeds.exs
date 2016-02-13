@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+File.stream!("/Users/wsmoak/Downloads/transactions.csv")
+    |> CSV.decode(headers: true)
+    |> Enum.take(2)
+    |> IO.inspect
