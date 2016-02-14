@@ -7,6 +7,7 @@
       <th>Category</th>
       <th>Date</th>
       <th>Description</th>
+      <th>Amount</th>
 
       <th></th>
     </tr>
@@ -18,6 +19,7 @@
       <td><%= transaction.category %></td>
       <td><%= transaction.date %></td>
       <td><%= transaction.description %></td>
+      <td><%= transaction.amount %></td>
 
       <td class="text-right">
         <%= link "Show", to: transaction_path(@conn, :show, transaction), class: "btn btn-default btn-xs" %>
