@@ -3,7 +3,7 @@ defmodule Minty.Repo.Migrations.CreateTransaction do
 
   def change do
     create table(:transactions) do
-      add :date, :string
+      add :date, :date
       add :description, :string
       add :original_description, :string
       add :amount, :float

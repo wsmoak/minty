@@ -15,17 +15,25 @@ alias Minty.Repo
 
 defmodule Minty.Seeds do
 
-  def fix_it(%{transaction_type: "debit"} = row) do
+  def fix_amount(%{transaction_type: "debit"} = row) do
     Map.update!(row,:amount,&("-"<>&1))
   end
 
-  def fix_it(%{transaction_type: "credit"} = row) do
+  def fix_amount(%{transaction_type: "credit"} = row) do
     row
+  end
+
+  def fix_date(%{date: _} = row) do
+    list = String.split(row[:date],"/")
+    date = "#{Enum.at(list,2)}-#{String.rjust(Enum.at(list,0),2,?0)}-#{Enum.at(list,1)}"
+    Map.update!(row,:date,fn _ -> date end)
+
   end
 
   def store_it(row) do
     IO.inspect row
-    row = fix_it(row)
+    row = fix_amount(row)
+    row = fix_date(row)
     changeset = Transaction.changeset(%Transaction{}, row)
     Repo.insert!(changeset)
   end

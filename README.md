@@ -11,6 +11,10 @@ $ mix run priv/repo/seeds.exs
 
 Note: The `Stream.drop(1)` ignores the first line of the CSV because we are re-defining the headers. See https://github.com/beatrichartz/csv/issues/27
 
+http://stackoverflow.com/questions/34357812/in-elixir-how-do-you-format-numbers-with-string-interpolation
+
+http://www.rymai.me/2015/12/08/populating-database-tables-from-a-csv-in-elixir/
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`

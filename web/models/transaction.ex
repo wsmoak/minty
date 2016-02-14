@@ -2,7 +2,7 @@ defmodule Minty.Transaction do
   use Minty.Web, :model
 
   schema "transactions" do
-    field :date, :string
+    field :date, Ecto.Date
     field :description, :string
     field :original_description, :string
     field :amount, :float
