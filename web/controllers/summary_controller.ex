@@ -10,7 +10,9 @@ defmodule Minty.SummaryController do
       select: [txn.category, sum(txn.amount)]
     )
 
-    render(conn, "index.html", lines: lines)
+    sorted_lines = Enum.sort(lines,&(Enum.at(&1,1)>Enum.at(&2,1)))
+
+    render(conn, "index.html", lines: sorted_lines)
 
   end
 

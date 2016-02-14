@@ -25,3 +25,5 @@ defmodule Minty.Queries do
     |> Enum.each(&(IO.puts("#{Enum.at(&1,0)} #{Float.to_string(Enum.at(&1,1),[decimals: 2])}")))
   end
 end
+
+Minty.Queries.print_summary

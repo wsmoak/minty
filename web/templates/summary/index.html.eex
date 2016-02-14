@@ -11,7 +11,7 @@
 <%= for line <- @lines do %>
     <tr>
       <td><%= Enum.at(line,0) %></td>
-      <td><%= Enum.at(line,1) %></td>
+      <td><%= Float.to_string(Enum.at(line,1),[decimals: 2]) %></td>
     </tr>
 <% end %>
   </tbody>
