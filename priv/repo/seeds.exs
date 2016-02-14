@@ -15,6 +15,11 @@ alias Minty.Repo
 
 defmodule Minty.Seeds do
 
+  # https://github.com/beatrichartz/csv/issues/27
+  def store_it(%{:date => "Date"}) do
+    IO.puts "IGNORING THE HEADERS!!!"
+  end
+
   def store_it(row) do
     IO.inspect row
     changeset = Transaction.changeset(%Transaction{}, row)
