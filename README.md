@@ -1,5 +1,14 @@
 # Minty
 
+$ mix phoenix.server
+
+To start over and re-seed:
+$ mix ecto.drop
+# make changes to the model/migration/html
+$ mix ecto.create
+$ mix ecto.migrate
+$ mix run priv/repo/seeds.exs
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
