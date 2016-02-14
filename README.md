@@ -15,6 +15,10 @@ http://stackoverflow.com/questions/34357812/in-elixir-how-do-you-format-numbers-
 
 http://www.rymai.me/2015/12/08/populating-database-tables-from-a-csv-in-elixir/
 
+http://www.glydergun.com/diving-into-ecto-part-2/
+
+https://hexdocs.pm/ecto/Ecto.Query.html
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`

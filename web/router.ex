@@ -20,6 +20,7 @@ defmodule Minty.Router do
 
     # mix phoenix.gen.html Transaction transactions account_name:string category:string date:date description:string
     resources "/transactions", TransactionController
+    get "/summary", SummaryController, :index
   end
 
   # Other scopes may use custom stacks.
