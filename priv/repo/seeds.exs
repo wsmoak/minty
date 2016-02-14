@@ -15,11 +15,6 @@ alias Minty.Repo
 
 defmodule Minty.Seeds do
 
-  # https://github.com/beatrichartz/csv/issues/27
-  def store_it(%{:date => "Date"}) do
-    IO.puts "IGNORING THE HEADERS!!!"
-  end
-
   def store_it(row) do
     IO.inspect row
     changeset = Transaction.changeset(%Transaction{}, row)
@@ -29,5 +24,6 @@ defmodule Minty.Seeds do
 end
 
 File.stream!("/Users/wsmoak/Downloads/transactions.csv")
+  |> Stream.drop(1)
   |> CSV.decode(headers: [:date, :description, :original_description, :amount, :transaction_type, :category, :account_name, :labels, :notes])
   |> Enum.each(&Minty.Seeds.store_it/1)

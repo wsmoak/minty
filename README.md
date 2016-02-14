@@ -9,6 +9,8 @@ $ mix ecto.create
 $ mix ecto.migrate
 $ mix run priv/repo/seeds.exs
 
+Note: The `Stream.drop(1)` ignores the first line of the CSV because we are re-defining the headers. See https://github.com/beatrichartz/csv/issues/27
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
