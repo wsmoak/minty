@@ -4,7 +4,7 @@ defmodule Minty.Transaction do
   schema "transactions" do
     field :account_name, :string
     field :category, :string
-    field :date, Ecto.Date
+    field :date, :string
     field :description, :string
 
     timestamps

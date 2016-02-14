@@ -5,7 +5,7 @@ defmodule Minty.Repo.Migrations.CreateTransaction do
     create table(:transactions) do
       add :account_name, :string
       add :category, :string
-      add :date, :date
+      add :date, :string
       add :description, :string
 
       timestamps

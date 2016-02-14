@@ -10,14 +10,17 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
+alias Minty.Transaction
+
 defmodule Minty.Seeds do
 
   def store_it(row) do
     IO.inspect row
+    changeset = Transaction.changeset(%Transaction{}, row)
   end
 
 end
 
 File.stream!("/Users/wsmoak/Downloads/transactions.csv")
-  |> CSV.decode(headers: true)
+  |> CSV.decode(headers: [:date, :description, :original_description, :amount, :transaction_type, :category, :account_name, :labels, :notes])
   |> Enum.each(&Minty.Seeds.store_it/1)
