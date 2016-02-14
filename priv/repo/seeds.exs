@@ -11,12 +11,14 @@
 # and so on) as they will fail if something goes wrong.
 
 alias Minty.Transaction
+alias Minty.Repo
 
 defmodule Minty.Seeds do
 
   def store_it(row) do
     IO.inspect row
     changeset = Transaction.changeset(%Transaction{}, row)
+    Repo.insert!(changeset)
   end
 
 end
