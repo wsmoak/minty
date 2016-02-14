@@ -6,7 +6,7 @@ defmodule Minty.Repo.Migrations.CreateTransaction do
       add :date, :string
       add :description, :string
       add :original_description, :string
-      add :amount, :string
+      add :amount, :float
       add :transaction_type, :string
       add :category, :string
       add :account_name, :string
