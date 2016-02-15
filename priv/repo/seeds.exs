@@ -23,11 +23,14 @@ defmodule Minty.Seeds do
     row
   end
 
-  def fix_date(%{date: _} = row) do
-    list = String.split(row[:date],"/")
-    date = "#{Enum.at(list,2)}-#{String.rjust(Enum.at(list,0),2,?0)}-#{Enum.at(list,1)}"
+  def fix_date(%{date: <<m0,"/",d1,d0,"/",y3,y2,y1,y0>>} = row) do
+    date = <<y3,y2,y1,y0,"-","0",m0,"-",d1,d0>>
     Map.update!(row,:date,fn _ -> date end)
+  end
 
+  def fix_date(%{date: <<m1,m0,"/",d1,d0,"/",y3,y2,y1,y0>>} = row) do
+    date = <<y3,y2,y1,y0,"-",m1,m0,"-",d1,d0>>
+    Map.update!(row,:date,fn _ -> date end)
   end
 
   def store_it(row) do
